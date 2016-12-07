@@ -40,7 +40,7 @@ function effects ({dispatch, getState}) {
 
 function promisify (val) {
   return Array.isArray(val)
-    ? Promise.all(val)
+    ? Promise.all(val.map(promisify))
     : Promise.resolve(val)
 }
 
